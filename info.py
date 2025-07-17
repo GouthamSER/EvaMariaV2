@@ -1,5 +1,7 @@
 import re
 from os import environ
+from Script import script
+from time import time
 
 id_pattern = re.compile(r'^.\d+$')
 def is_enabled(value, default):
@@ -11,6 +13,7 @@ def is_enabled(value, default):
         return default
 
 # Bot information
+BOT_START_TIME = time()
 SESSION = environ.get('SESSION', 'Media_search')
 API_ID = int(environ['API_ID'])
 API_HASH = environ['API_HASH']
