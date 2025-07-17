@@ -1,5 +1,9 @@
 import logging
 import logging.config
+import asyncio
+from datetime import datetime, timedelta
+import os
+import sys
 
 # Get logging configurations
 logging.config.fileConfig('logging.conf')
@@ -11,10 +15,22 @@ from pyrogram import Client, __version__
 from pyrogram.raw.all import layer
 from database.ia_filterdb import Media
 from database.users_chats_db import db
-from info import SESSION, API_ID, API_HASH, BOT_TOKEN, LOG_STR
+from info import SESSION, API_ID, API_HASH, BOT_TOKEN, LOG_STR,LOG_CHANNEL
 from utils import temp
 from typing import Union, Optional, AsyncGenerator
 from pyrogram import types
+# prevent asyncio logging spam
+logging.getLogger("asyncio").setLevel(logging.CRITICAL - 1)
+
+# peer ID invalid fix
+from pyrogram import utils as pyroutils
+pyroutils.MIN_CHAT_ID = -999999999999
+pyroutils.MIN_CHANNEL_ID = -100999999999999
+PORT_CODE = environ.get("PORT", "8080")
+
+from plugins.webcode import bot_run
+from os import environ
+from aiohttp import web as webserver
 
 class Bot(Client):
 
@@ -42,10 +58,30 @@ class Bot(Client):
         self.username = '@' + me.username
         logging.info(f"{me.first_name} with for Pyrogram v{__version__} (Layer {layer}) started on {me.username}.")
         logging.info(LOG_STR)
+        client = webserver.AppRunner(await bot_run())
+        await client.setup()
+        bind_address = "0.0.0.0"
+        await webserver.TCPSite(client, bind_address, PORT_CODE).start()
+
+        # Schedule auto-restart every 24 hours
+        asyncio.create_task(self.schedule_restart())
 
     async def stop(self, *args):
         await super().stop()
         logging.info("Bot stopped. Bye.")
+
+    # 24 hrs restart fn()
+    async def restart(self):
+        logging.info("Restarting bot process...")
+        await self.stop()
+        os.execl(sys.executable, sys.executable, *sys.argv)
+
+    async def schedule_restart(self, hours: int = 24):
+        await asyncio.sleep(hours * 60 * 60)  # Wait for 24 hours
+        await self.send_message(chat_id=LOG_CHANNEL, text="Auto Restarting the 2 DB Featrure Bot (24 hrs refresh)...")
+        await self.restart()
+#restarting fn() end;
+
     
     async def iter_messages(
         self,
