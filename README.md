@@ -6,13 +6,13 @@
 </h1>
 
 
-[![Stars](https://img.shields.io/github/stars/EvamariaTG/EvaMaria?style=flat-square&color=yellow)](https://github.com/EvamariaTG/EvaMaria/stargazers)
-[![Forks](https://img.shields.io/github/forks/EvamariaTG/EvaMaria?style=flat-square&color=orange)](https://github.com/EvamariaTG/EvaMaria/fork)
-[![Size](https://img.shields.io/github/repo-size/EvamariaTG/EvaMaria?style=flat-square&color=green)](https://github.com/EvamariaTG/EvaMaria/)   
-[![Open Source Love svg2](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/EvamariaTG/EvaMaria)   
-[![Contributors](https://img.shields.io/github/contributors/EvamariaTG/EvaMaria?style=flat-square&color=green)](https://github.com/EvamariaTG/EvaMaria/graphs/contributors)
-[![License](https://img.shields.io/badge/License-AGPL-blue)](https://github.com/EvamariaTG/EvaMaria/blob/main/LICENSE)
-[![Sparkline](https://stars.medv.io/EvamariaTG/EvaMaria.svg)](https://stars.medv.io/EvamariaTG/EvaMaria)
+[![Stars](https://img.shields.io/github/stars/GouthamSER/EvaMariav2?style=flat-square&color=yellow)](https://github.com/GouthamSER/EvaMariav2/stargazers)
+[![Forks](https://img.shields.io/github/forks/GouthamSER/EvaMariav2?style=flat-square&color=orange)](https://github.com/GouthamSER/EvaMariav2/fork)
+[![Size](https://img.shields.io/github/repo-size/GouthamSER/EvaMariav2?style=flat-square&color=green)](https://github.com/GouthamSER/EvaMariav2/)   
+[![Open Source Love svg2](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/GouthamSER/EvaMariav2)   
+[![Contributors](https://img.shields.io/github/contributors/GouthamSER/EvaMariav2?style=flat-square&color=green)](https://github.com/GouthamSER/EvaMariav2/graphs/contributors)
+[![License](https://img.shields.io/badge/License-AGPL-blue)](https://github.com/GouthamSER/EvaMariav2/blob/main/LICENSE)
+[![Sparkline](https://stars.medv.io/GouthamSER/EvaMariav2.svg)](https://stars.medv.io/GouthamSER/EvaMariav2)
 
 
 ## Features
@@ -52,7 +52,16 @@ Read [this](https://telegram.dog/TeamEvamaria/12) before you start messing up wi
 ## Deploy
 You can deploy this bot anywhere.
 
-<i>**[Watch Deploying Tutorial...](https://youtu.be/1G1XwEOnxxo)**</i>
+<i>**[Watch Deploying Tutorial...](https://youtu.be/)**</i>
+
+<details><summary>Deploy To Koyeb</summary>
+<p>
+<br>
+<a href="https://app.koyeb.com/deploy?type=git&repository=github.com/GouthamSER/EvaMariaV2&env[BOT_TOKEN]&env[API_ID]&env[API_HASH]&env[CHANNELS]&env[ADMINS]&env[PICS]&env[LOG_CHANNEL]&env[AUTH_CHANNEL]&env[CUSTOM_FILE_CAPTION]&env[DATABASE_URI]&env[DATABASE_NAME]&env[COLLECTION_NAME]=files&env[FILE_CHANNEL]=-1001832732995&env[SUPPORT_CHAT]&env[IMDB]=True&env[IMDB_TEMPLATE]&env[SINGLE_BUTTON]=True&env[AUTH_CHANNEL]&env[AUTH_GROUPS]&env[P_TTI_SHOW_OFF]=True&branch=main&name=Evamariav2">
+ <img src="https://www.koyeb.com/static/images/deploy/button.svg">
+</a>
+</p>
+</details>
 
 <details><summary>Deploy To Heroku</summary>
 <p>
@@ -66,7 +75,7 @@ You can deploy this bot anywhere.
 <details><summary>Deploy To VPS</summary>
 <p>
 <pre>
-git clone https://github.com/EvamariaTG/evamaria
+git clone https://github.com/GouthamSER/EvaMariav2
 # Install Packages
 pip3 install -U -r requirements.txt
 Edit info.py with variables as given below then run bot
